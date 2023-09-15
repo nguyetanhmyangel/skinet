@@ -1,4 +1,5 @@
 # Commands used in project
+* dotnet new list
 * dotnet new sln
 * dotnet new webapi -n Api
 * dotnet new classlib -n Core
@@ -12,4 +13,5 @@
 * dotnet tool install --global dotnet-ef --version 7.0.10 / dotnet tool update --global dotnet-ef --version 7.0.10 
 * dotnet build
 * dotnet ef migrations add InitialCreate -p Infrastructure -s Api -o Data/Migrations
+* dotnet new gitignore
 
