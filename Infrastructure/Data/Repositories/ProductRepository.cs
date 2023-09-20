@@ -1,46 +1,33 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Core.Entities;
 using Core.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Data;
+namespace Infrastructure.Data.Repositories;
 
-public class ProductRepository : IProductRepository
+public class ProductRepository: IProductRepository
 {
     private readonly StoreDbContext _context;
-    public ProductRepository(StoreDbContext context)
-    {
-            this._context = context;
-        
-    }
-    
+        public ProductRepository(StoreDbContext context)
+        {
+            _context = context;
+        }
 
-    public async Task<Product> GetProductByIdAsync(int id)
+    Task<IReadOnlyList<ProductBrand>> IProductRepository.GetProductBrandsAsync()
     {
-        return await _context.Products
-            .Include(p => p.ProductType)
-            .Include(p => p.ProductBrand)
-            .FirstOrDefaultAsync(x => x.Id == id);
+        throw new NotImplementedException();
     }
 
-    public async Task<IReadOnlyList<Product>> GetProductsAsync()
+    Task<Product> IProductRepository.GetProductByIdAsync(int id)
     {
-        return await _context.Products
-            .Include(p => p.ProductType)
-            .Include(p => p.ProductBrand)
-            .ToListAsync();
+        throw new NotImplementedException();
     }
 
-    // public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
-    // {
-    //     return await _context.ProductBrands.ToListAsync();
-    // }
+    Task<IReadOnlyList<Product>> IProductRepository.GetProductsAsync()
+    {
+        throw new NotImplementedException();
+    }
 
-    // public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
-    // {
-    //     return await _context.ProductTypes.ToListAsync();
-    // }
+    Task<IReadOnlyList<ProductType>> IProductRepository.GetProductTypesAsync()
+    {
+        throw new NotImplementedException();
+    }
 }
