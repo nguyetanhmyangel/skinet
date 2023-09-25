@@ -1,33 +1,41 @@
+using System.Net;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data.Repositories;
 
-public class ProductRepository: IProductRepository
+public class ProductRepository : IProductRepository
 {
     private readonly StoreDbContext _context;
-        public ProductRepository(StoreDbContext context)
-        {
-            _context = context;
-        }
-
-    Task<IReadOnlyList<ProductBrand>> IProductRepository.GetProductBrandsAsync()
+    public ProductRepository(StoreDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    Task<Product> IProductRepository.GetProductByIdAsync(int id)
+    public async Task<IReadOnlyList<Product>> GetProductsAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Products
+            // .Include(p => p.ProductType)
+            // .Include(p => p.ProductBrand)
+            .ToListAsync();
     }
 
-    Task<IReadOnlyList<Product>> IProductRepository.GetProductsAsync()
+    public async Task<Product> GetProductByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Products.FindAsync(id);
+            // .Include(p => p.ProductType)
+            // .Include(p => p.ProductBrand)
+            //.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    Task<IReadOnlyList<ProductType>> IProductRepository.GetProductTypesAsync()
+    public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
     {
-        throw new NotImplementedException();
+        return await _context.ProductBrands.ToListAsync();
+    }
+
+    public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
+    {
+        return await _context.ProductTypes.ToListAsync();
     }
 }

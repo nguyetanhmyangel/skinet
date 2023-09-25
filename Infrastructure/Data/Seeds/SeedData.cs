@@ -13,28 +13,29 @@ public class SeedData
 
         if (!context.ProductBrands.Any())
         {
-            var brandsData = File.ReadAllText(path + @"/Data/Seeds/json/brands.json");
+            //var brandsData = File.ReadAllText(path + @"/Data/Seeds/JsonData/brands.json");
+            var brandsData = File.ReadAllText("../Infrastructure/Data/Seeds/JsonData/brands.json");
             var brands = JsonSerializer.Deserialize<List<ProductBrand>>(brandsData);
             context.ProductBrands.AddRange(brands);
         }
 
         if (!context.ProductTypes.Any())
         {
-            var typesData = File.ReadAllText(path + @"/Data/Seeds/json/types.json");
+            var typesData = File.ReadAllText("../Infrastructure/Data/Seeds/JsonData/types.json");
             var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
             context.ProductTypes.AddRange(types);
         }
 
         if (!context.Products.Any())
         {
-            var productsData = File.ReadAllText(path + @"/Data/Seeds/json/products.json");
+            var productsData = File.ReadAllText("../Infrastructure/Data/Seeds/JsonData/products.json");
             var products = JsonSerializer.Deserialize<List<Product>>(productsData);
             context.Products.AddRange(products);
         }
 
         if (!context.DeliveryMethods.Any())
         {
-            var deliveryData = File.ReadAllText(path + @"/Data/Seeds/json/delivery.json");
+            var deliveryData = File.ReadAllText("../Infrastructure/Data/Seeds/JsonData/delivery.json");
             var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryData);
             context.DeliveryMethods.AddRange(methods);
         }

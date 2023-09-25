@@ -10,3 +10,14 @@
 /home/sa/projects/net7/skinet/Core/obj/Debug/net7.0/refint/Core.dll
 /home/sa/projects/net7/skinet/Core/obj/Debug/net7.0/Core.pdb
 /home/sa/projects/net7/skinet/Core/obj/Debug/net7.0/ref/Core.dll
+D:\Projects\Net7\skinet\Core\bin\Debug\net7.0\Core.deps.json
+D:\Projects\Net7\skinet\Core\bin\Debug\net7.0\Core.dll
+D:\Projects\Net7\skinet\Core\bin\Debug\net7.0\Core.pdb
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\Core.AssemblyInfoInputs.cache
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\Core.AssemblyInfo.cs
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\Core.csproj.CoreCompileInputs.cache
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\Core.dll
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\refint\Core.dll
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\Core.pdb
+D:\Projects\Net7\skinet\Core\obj\Debug\net7.0\ref\Core.dll
