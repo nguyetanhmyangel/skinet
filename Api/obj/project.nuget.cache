@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uB8CbzJDbJrzOCV7cvLHoRuisUaMSRl40tzi6CQErow+AsqF82w4tBno01HxKafj7/teMxdxrQlG9kXDyK/C9g==",
+  "dgSpecHash": "Hs6kObG0duM4i1ZY2rAbpNNnCXaVlowBRLOV1Q8VzcU644lvvDM2KcxXFNqYYtnP4K8AVneDtbQlqdIHMyVqMA==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
+  "projectFilePath": "d:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

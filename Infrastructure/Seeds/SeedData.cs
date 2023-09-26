@@ -2,8 +2,9 @@ using System.Reflection;
 using System.Text.Json;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
+using Infrastructure.Contexts;
 
-namespace Infrastructure.Data;
+namespace Infrastructure.Seeds;
 
 public class SeedData
 {

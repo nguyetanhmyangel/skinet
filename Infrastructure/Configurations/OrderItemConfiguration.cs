@@ -2,7 +2,7 @@ using Core.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.Configurations;
+namespace Infrastructure.Configurations;
 
 public class OrderItemConfiguration: IEntityTypeConfiguration<OrderItem>
 {

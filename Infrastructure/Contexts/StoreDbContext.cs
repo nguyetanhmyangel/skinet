@@ -1,10 +1,9 @@
-using System.Collections.Immutable;
 using System.Reflection;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Data
+namespace Infrastructure.Contexts
 {
     public class StoreDbContext : DbContext
     {
