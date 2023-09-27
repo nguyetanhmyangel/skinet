@@ -1,10 +1,10 @@
 using Core.Entities;
-using Core.Interfaces.Specifications;
+using Core.Specifications;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Specifications;
+namespace Infrastructure.Extensions;
 
-public class SpecificationQueryable<TEntity> where TEntity : BaseEntity
+public class QueryableExtension<TEntity> where TEntity : BaseEntity
 {
     public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ISpecification<TEntity> spec)
     {

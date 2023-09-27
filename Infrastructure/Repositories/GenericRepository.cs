@@ -1,7 +1,8 @@
 using Core.Entities;
 using Core.Interfaces.Repositories;
-using Core.Interfaces.Specifications;
+using Core.Specifications;
 using Infrastructure.Contexts;
+using Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
@@ -9,48 +10,54 @@ namespace Infrastructure.Repositories;
 public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
 {
     private readonly StoreDbContext _context;
-    public GenericRepository(StoreDbContext context)
-    {
-        _context = context;
-    }
+        public GenericRepository(StoreDbContext context)
+        {
+            _context = context;
+        }
 
-    void IGenericRepository<T>.Add(T entity)
-    {
-        throw new NotImplementedException();
-    }
+        public void Add(T entity)
+        {
+            _context.Set<T>().Add(entity);
+        }
 
-    Task<int> IGenericRepository<T>.CountAsync(ISpecification<T> spec)
-    {
-        throw new NotImplementedException();
-    }
+        public void Update(T entity)
+        {
+            _context.Set<T>().Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+        }
 
-    void IGenericRepository<T>.Delete(T entity)
-    {
-        throw new NotImplementedException();
-    }
+        public void Delete(T entity)
+        {
+            _context.Set<T>().Remove(entity);
+        }
 
-    Task<T> IGenericRepository<T>.GetByIdAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
+        public async Task<int> CountAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
+        }
 
-    Task<T> IGenericRepository<T>.GetEntityWithSpec(ISpecification<T> spec)
-    {
-        throw new NotImplementedException();
-    }
+        public async Task<T> GetByIdAsync(int id)
+        {
+            return await _context.Set<T>().FindAsync(id);
+        }
 
-    Task<IReadOnlyList<T>> IGenericRepository<T>.ListAllAsync()
-    {
-        throw new NotImplementedException();
-    }
+        public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
+        }
 
-    Task<IReadOnlyList<T>> IGenericRepository<T>.ListAsync(ISpecification<T> spec)
-    {
-        throw new NotImplementedException();
-    }
+        public async Task<IReadOnlyList<T>> ListAllAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
 
-    void IGenericRepository<T>.Update(T entity)
-    {
-        throw new NotImplementedException();
-    }
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).ToListAsync();
+        }
+
+        private IQueryable<T> ApplySpecification(ISpecification<T> spec)
+        {
+            return QueryableExtension<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
+        }
 }
