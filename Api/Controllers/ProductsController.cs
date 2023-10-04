@@ -34,7 +34,7 @@ namespace Api.Controllers
         {
             var spec = new ProductsWithTypesAndBrandsSpecification();
             var products = await _productRepository.ListAsync(spec);
-            return Ok(products);
+            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductResponse>>(products));
         }
 
         [HttpGet("{id}")]

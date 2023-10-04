@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iZ6AIZObV88IWubCQcnvGamai9Ug4Akxknvye1RfiEIpEl04gLPanNPZ+1K65zbTpEynvfdzYxL7Tq3w9BK1aQ==",
+  "dgSpecHash": "ie7eBYXWJ4gWrpPqlcTF1HTxYtEQV5MOX5z6UytKtR/JHPqLYC6KGH3GwCPQxMKCRp4NUQggwRfJcQUlHGGvvQ==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
+  "projectFilePath": "d:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

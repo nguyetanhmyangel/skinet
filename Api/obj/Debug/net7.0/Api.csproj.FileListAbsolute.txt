@@ -160,3 +160,4 @@ D:\Projects\Net7\skinet\api\obj\Debug\net7.0\Api.genruntimeconfig.cache
 D:\Projects\Net7\skinet\api\obj\Debug\net7.0\ref\Api.dll
 d:\Projects\Net7\skinet\Api\bin\Debug\net7.0\AutoMapper.dll
 d:\Projects\Net7\skinet\Api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Projects\Net7\skinet\Api\bin\Debug\net7.0\Api.staticwebassets.runtime.json

@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "llrbuzIYQAIzOVzCT1dMYbgtako286gVg/Pj7offB04=",
+  "Hash": "nGbLuYpOBqsG5dVwO3bs/uypLSDbX944FD5IiyF+NFw=",
   "Source": "Api",
   "BasePath": "_content/Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Api\\wwwroot",
+      "Source": "Api",
+      "ContentRoot": "D:\\Projects\\Net7\\skinet\\Api\\wwwroot\\",
+      "BasePath": "_content/Api",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
