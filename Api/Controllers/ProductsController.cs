@@ -31,11 +31,14 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductResponse>>> GetProducts(
+            [FromQuery] ProductSpecParams productParams)
         {
-            var spec = new ProductsWithTypesAndBrandsSpecification();
+            var spec = new ProductsWithTypesAndBrandsSpecification(productParams);
             var products = await _productRepository.ListAsync(spec);
-            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductResponse>>(products));
+            return Ok(_mapper
+                .Map<IReadOnlyList<Product>, IReadOnlyList<ProductResponse>>
+                (products));
         }
 
         [HttpGet("{id}")]
