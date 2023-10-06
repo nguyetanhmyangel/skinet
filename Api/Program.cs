@@ -1,7 +1,6 @@
-using Core.Interfaces;
-using Core.Interfaces.Repositories;
+using Api.Extensions;
+using Api.Middleware;
 using Infrastructure.Contexts;
-using Infrastructure.Repositories;
 using Infrastructure.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -11,31 +10,27 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<StoreDbContext>(opt =>{
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+builder.Services.AddApplicationServices(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseMiddleware<ExceptionMiddleware>();
+// UseStatusCodePagesWithRedirects middleware component intercepts the status code and as the name implies, 
+// issues a redirect to the provided error path
+app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
+// Thêm StaticFileMiddleware - nếu Request là yêu cầu truy cập file tĩnh,
+// Nó trả ngay về Response nội dung file và là điểm cuối pipeline, nếu  khác
+// nó gọi  Middleware phía sau trong Pipeline
 app.UseStaticFiles();
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "Content")), RequestPath = "/Content"
+        Path.Combine(Directory.GetCurrentDirectory(), "Content")),
+    RequestPath = "/Content"
 });
 
 app.UseHttpsRedirection();
@@ -44,6 +39,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// seed Db
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 var context = services.GetRequiredService<StoreDbContext>();

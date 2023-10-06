@@ -1,5 +1,6 @@
 
 using Api.Dtos;
+using Api.Errors;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces.Repositories;
@@ -19,7 +20,7 @@ namespace Api.Controllers
         private readonly IMapper _mapper;
 
         public ProductsController(IGenericRepository<Product> productRepository,
-        IGenericRepository<ProductBrand> productBrandRepository, 
+        IGenericRepository<ProductBrand> productBrandRepository,
         IGenericRepository<ProductType> productTypeRepository,
         IMapper mapper)
         {
@@ -38,10 +39,13 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductResponse>> GetProduct(int id)
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);
             var product = await _productRepository.GetEntityWithSpec(spec);
+            if (product == null) return NotFound(new ApiException(404));
             return _mapper.Map<Product, ProductResponse>(product);
         }
 
