@@ -4015,23 +4015,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {},
+    "C:\\Users\\nghianl.ts\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
+      "projectUniqueName": "d:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "D:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Net7\\skinet\\Api\\obj\\",
+      "projectPath": "d:\\Projects\\Net7\\skinet\\Api\\Api.csproj",
+      "packagesPath": "C:\\Users\\nghianl.ts\\.nuget\\packages\\",
+      "outputPath": "d:\\Projects\\Net7\\skinet\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nghianl.ts\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

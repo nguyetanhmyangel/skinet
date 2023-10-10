@@ -33,6 +33,8 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/Content"
 });
 
+app.UseCors("CorsPolicy");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -1,5 +1,5 @@
 using Api.Dtos;
-using Api.Helpers;
+using Api.Mappings.Resolvers;
 using AutoMapper;
 using Core.Entities;
 
