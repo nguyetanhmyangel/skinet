@@ -1,0 +1,46 @@
+<div class="image position-relative" style="cursor: pointer;" *ngIf="product">
+  <img
+    class="img-fluid bg-info"
+    data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+    style="height: 225px; width: 100%; display: block;"
+    alt="{{product.name}}"
+    src="{{product.pictureUrl}}"
+    data-holder-rendered="true"
+  />
+  <div class="card-body">
+    <p class="card-text text-uppercase">
+      {{product.name}}
+    </p>
+    <div class="d-flex justify-content-between align-items-center hover-overlay">
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-outline-secondary fa fa-shopping-cart">
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">
+          View
+        </button>
+      </div>
+      <small class="text-muted">{{product.price | currency}}</small>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="card h-100 shadow-sm" *ngIf="product">
+
+  <div class="image position-relative" style="cursor: pointer;">
+      <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid bg-info">
+      <div class="d-flex align-items-center justify-content-center hover-overlay">
+          <button class="btn btn-primary fa fa-shopping-cart me-2"></button>
+          <button class="btn btn-primary">View</button>
+      </div>
+  </div>
+
+
+  <div class="card-body d-flex flex-column">
+      <a href="" class="text-decoration-none">
+          <h6 class="text-uppercase">
+              {{product.name}}
+          </h6>
+      </a>
+      <span class="mb-2">{{product.price | currency}}</span>
+  </div>
+</div> -->
