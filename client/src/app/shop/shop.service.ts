@@ -1,10 +1,11 @@
 
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../share/models/product';
-import { Pagination } from '../share/models/pagination';
-import { Brand } from '../share/models/brand';
-import { Type } from '../share/models/type';
+import { Pagination } from '../models/pagination';
+import { Product } from '../models/product';
+import { Brand } from '../models/brand';
+import { Type } from '../models/type';
+import { ShopParams } from '../models/shopParams';
 
 
 @Injectable({
@@ -15,12 +16,18 @@ export class ShopService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(brandId?: number, typeId?: number, sort?: string ) {
+  //getProducts(brandId?: number, typeId?: number, sort?: string) {
+  getProducts(shopParams: ShopParams) {
     let params = new HttpParams();
     // add a parameter has name "brandId" ,value "brandId"
-    if (brandId) params = params.append('brandId', brandId);
-    if (typeId) params = params.append('typeId', typeId);
-    if (sort) params = params.append('sort', sort);
+    if (shopParams.brandId > 0) params = params.append('brandId', shopParams.brandId);
+    if (shopParams.typeId) params = params.append('typeId', shopParams.typeId);
+    //if (sort) params = params.append('sort', sort);
+    params = params.append('sort', shopParams.sort);
+    if (shopParams.pageNumber) params = params.append('pageIndex', shopParams.pageNumber);
+    if (shopParams.pageSize) params = params.append('pageSize', shopParams.pageSize);
+    // params.append('pageIndex', shopParams.pageNumber);
+    // params.append('pageSize', shopParams.pageSize);
     return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products',{params});
   }
 

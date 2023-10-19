@@ -10,7 +10,7 @@ import { ShopModule } from './shop/shop.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
