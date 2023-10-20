@@ -1,6 +1,6 @@
 import { ShopParams } from './../models/shopParams';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ShopService } from './shop.service';
 import { Product } from '../models/product';
 import { Brand } from '../models/brand';
@@ -12,6 +12,7 @@ import { Type } from '../models/type';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
+  @ViewChild('search') searchTerm?: ElementRef;
   products: Product[] = [];
   brands: Brand[] = [];
   types: Type[] = [];
@@ -20,9 +21,9 @@ export class ShopComponent implements OnInit {
   // sortSelected = 'name';
   shopParams = new ShopParams();
   sortOptions = [
-    { name: 'Alphabetical', value: 'name' },
-    { name: 'Price: Low to hight', value: 'priceAsc' },
-    { name: 'Price: Hight to low', value: 'priceDesc' },
+    { name: 'Sort by alphabetical', value: 'name' },
+    { name: 'Sort by price: Low to hight', value: 'priceAsc' },
+    { name: 'Sort by price: Hight to low', value: 'priceDesc' },
   ];
   totalCount = 0;
 
@@ -49,14 +50,14 @@ export class ShopComponent implements OnInit {
 
   getBrands() {
     this.shopService.getBrands().subscribe({
-      next: (response) => (this.brands = [{ id: 0, name: 'All' }, ...response]),
+      next: (response) => (this.brands = [{ id: 0, name: 'All Brands' }, ...response]),
       error: (error) => console.log(error),
     });
   }
 
   getTypes() {
     this.shopService.getTypes().subscribe({
-      next: (response) => (this.types = [{ id: 0, name: 'All' }, ...response]),
+      next: (response) => (this.types = [{ id: 0, name: 'All Types' }, ...response]),
       error: (error) => console.log(error),
     });
   }
@@ -64,12 +65,14 @@ export class ShopComponent implements OnInit {
   onBrandSelected(brandId: number) {
     //this.brandIdSelected = brandId;
     this.shopParams.brandId = brandId;
+    this.shopParams.pageNumber = 1;
     this.getProducts();
   }
 
   onTypeSelected(typeId: number) {
     //this.typeIdSelected = typeId;
     this.shopParams.typeId = typeId;
+    this.shopParams.pageNumber = 1;
     this.getProducts();
   }
 
@@ -84,5 +87,17 @@ export class ShopComponent implements OnInit {
       this.shopParams.pageNumber = event;
       this.getProducts();
     }
+  }
+
+  onSearch(){
+    this.shopParams.search = this.searchTerm?.nativeElement.value;
+    this.shopParams.pageNumber = 1;
+    this.getProducts();
+  }
+
+  onReset(){
+    if (this.searchTerm) this.searchTerm.nativeElement.value = '';
+    this.shopParams = new ShopParams();
+    this.getProducts();
   }
 }
