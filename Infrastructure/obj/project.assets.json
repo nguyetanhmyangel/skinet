@@ -3196,23 +3196,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nghianl.ts\\.nuget\\packages\\": {},
+    "C:\\Users\\minhn\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Net7\\skinet\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "D:\\projects\\net7\\skinet\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\Projects\\Net7\\skinet\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\nghianl.ts\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Net7\\skinet\\Infrastructure\\obj\\",
+      "projectPath": "D:\\projects\\net7\\skinet\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\minhn\\.nuget\\packages\\",
+      "outputPath": "D:\\projects\\net7\\skinet\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\nghianl.ts\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\minhn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3228,8 +3228,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Projects\\Net7\\skinet\\Core\\Core.csproj": {
-              "projectPath": "D:\\Projects\\Net7\\skinet\\Core\\Core.csproj"
+            "D:\\projects\\net7\\skinet\\Core\\Core.csproj": {
+              "projectPath": "D:\\projects\\net7\\skinet\\Core\\Core.csproj"
             }
           }
         }
